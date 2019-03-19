@@ -40,7 +40,7 @@ def simulate(bodies):
 	#for body in bodies:
 	#		plt.plot(body.px,body.py,body.color+'o')
 	while step<=2000:
-		print str(step)
+		print(str(step))
 		
 		step+=1
 		force= {}
@@ -68,10 +68,10 @@ def simulate(bodies):
 	#plt.close(fig)
 
 def runstuff():
-	sun = body('sun','y',1.98892*10**30,0,0,0,0)
-	earth = body('earth','g',5.9742*10**24,-1*AU,0,0,29.783*1000)
-	venus =body('venus','r',4.8685*10**24,0.723*AU,0,0,-35.02*1000)
-	jupiter = body('jupiter','k', 1.898*10**27,4.2*AU,0,0,-13.1*1000)
+	sun = Body('sun','y',1.98892*10**30,0,0,0,0)
+	earth = Body('earth','g',5.9742*10**24,-1*AU,0,0,29.783*1000)
+	venus = Body('venus','r',4.8685*10**24,0.723*AU,0,0,-35.02*1000)
+	jupiter = Body('jupiter','k', 1.898*10**27,4.2*AU,0,0,-13.1*1000)
 	simulate([sun,earth,venus,jupiter])
 runstuff()
 
