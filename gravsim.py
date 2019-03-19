@@ -7,7 +7,7 @@ AU=(149.6e6 *1000)
 scale=250/AU
 G = 6.67428e-11
 
-class body:
+class Body:
 	def __init__(self,name,color,mass,px,py,vx,vy):
 		self.name= name
 		self.mass= mass
