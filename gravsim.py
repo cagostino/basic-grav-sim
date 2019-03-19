@@ -18,7 +18,7 @@ class Body:
 		self.positiony=[]
 		self.positionx=[]
 		self.color=color
-	def gravity(self,other):
+	def euler(self,other):
 		sx,sy=self.px,self.py
 		ox,oy =other.px,other.py
 		dx=(ox-sx)
@@ -33,7 +33,7 @@ class Body:
 		return [fx,fy]
 #plt.ion()
 
-def simulate(bodies):
+def simulate_euler(bodies):
 	timestep= 24*3600
 	step = 1 
 
@@ -49,7 +49,7 @@ def simulate(bodies):
 			for other in bodies:
 				if body is other:
 					continue
-				fx,fy=body.gravity(other)
+				fx,fy=body.euler(other)
 				total_fx+=fx
 				total_fy+=fy
 			force[body]=(total_fx,total_fy)
@@ -72,6 +72,6 @@ def runstuff():
 	earth = Body('earth','g',5.9742*10**24,-1*AU,0,0,29.783*1000)
 	venus = Body('venus','r',4.8685*10**24,0.723*AU,0,0,-35.02*1000)
 	jupiter = Body('jupiter','k', 1.898*10**27,4.2*AU,0,0,-13.1*1000)
-	simulate([sun,earth,venus,jupiter])
+	simulate_euler([sun,earth,venus,jupiter])
 runstuff()
 
